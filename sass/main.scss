@@ -86,14 +86,11 @@ $font-principal:'Kanit', sans-serif;
     transition: .5S;
 }
 
-.form-box input:focus~label
+.form-box input:focus~label,
+.form-box input:valid~label
 {
     top: -22px;
 }
-/* .form-box input:valid~label{
-    top: -22px;
-} */
-
 
 .icon{
     position: absolute;

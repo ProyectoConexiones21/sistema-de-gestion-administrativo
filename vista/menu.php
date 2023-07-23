@@ -15,6 +15,11 @@
                 <a href="?pagina=clienteCorporativo" class="btn-2 btn">Registrar Cliente Corporativo</a>
                 <a href="?pagina=gestionar" class="btn-2 btn">Gestionar Servicios</a>
             </div>
+            <div class="row">
+                <form action="" method="post">
+                <input type="submit" name="regresar" class="btn" value="Cerrar">
+                </form>
+            </div>
         </div>
     </div>
 </body>
