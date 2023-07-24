@@ -1,7 +1,7 @@
 <?php
-if(!empty($_POST["regresar"])){
+if(!empty($_POST["cerrar"])){
 
-    $pagina="inicio";
+    exit;
 
 }
 if(is_file("vista/".$pagina.".php")){

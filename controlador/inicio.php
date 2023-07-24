@@ -1,4 +1,8 @@
 <?php
+
+if(!empty($_POST["btningresar"])){
+    
+}
 if(!empty($_POST["btningresar"]) and !empty($_POST["usuario"]) and !empty($_POST["contraseña"])){
 
     $usuario=$_POST["usuario"];
