@@ -9,37 +9,43 @@
         <div class="contenedor-img">
                 <img class=" img-2 img" src="img/Movistar.svg" alt="">
             </div> 
-            <div class="columna">
-            <div class="boton-desplegable">
-                    <a href="#" id="btnmenu_s" class="boton-2 boton">Gestionar servicio <i class=' icon-bx bx bx-chevron-down'></i></a>
-                    <ul class="menu_s" id="menu_s">
-                    <li class="menu-items_s"><a href="#" class="menu-link_s">Incluir Linia Nueva</a></li>
-                    <li class="menu-items_s"><a href="#" class="menu-link_s">Remplazar SIM Card</a></li>
-                    <li class="menu-items_s"><a href="#" class="menu-link_s">Cambiar Abonado/CTA Pagadora</a></li>
-                    <li class="menu-items_s"><a href="#" class="menu-link_s">Actualizar Datos</a></li>
-                    <li class="menu-items_s"><a href="#" class="menu-link_s border">Cambiar Numero</a></li>
-                    </ul>
-                </div>
-                
-                <div class="boton-desplegable">
-                    <a href="#" id="btnmenu" class="boton-2 boton">Gestionar Cliente <i class=' icon-bx bx bx-chevron-down'></i></a>
             
-                    <ul class="menu" id="menu">
-                    <li class="menu-items"><a href="?pagina=clientePrepago" class="menu-link">Registrar Cliente Prepago</a></li>
-                    <li class="menu-items"><a href="?pagina=clienteCorporativo" class="menu-link border">Registrar Cliente Corporativo</a></li>
-                    </ul>
-                </div>
+            <div class="columna">
+                <a href="#" class="boton boton-2">Registrar Usuario</a>
+                <ul class="menu-horizontal">
+                    <li>
+                        <a href="#" class="boton boton-2">Gestionar Cliente <i class=' icon-bx bx bx-chevron-down'></i></a>
+                        <ul class="menu-vertical">
+                            <li><a href="#">Registrar Cliente Prepago</a></li>
+                            <li><a href="#">Registrar Cliente Corporativo</a></li>
+                            <li><a href="#">Actualizar Datos</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
             <div class="columna">
-                <div class="boton-desplegable">
-                    <a href="#" id="btnmenu_r" class="boton-2 boton">Generar Reporte<i class=' icon-bx bx bx-chevron-down'></i></a>
-                    <ul class="menu_r" id="menu_r">
-                    <li class="menu-items_r"><a href="#" class="menu-link_r">Pagina En Construccion</a></li>
-                    <li class="menu-items_r"><a href="#" class="menu-link_r border">Pagina En Construccion</a></li>
-                    </ul>
-                </div>
-                <a href="?pagina=usuario" class="boton-2 boton">Registrar Usuario</a>
+                <ul class="menu-horizontal">
+                    <li>
+                        <a href="#" class="boton boton-2">Gestionar Servicios <i class=' icon-bx bx bx-chevron-down'></i></a>
+                        <ul class="menu-vertical menu-vertical-modifier">
+                            <li><a href="#">Incluir Linia Nueva</a></li>
+                            <li><a href="#">Remplazar SIM Card</a></li>
+                            <li><a href="#">Cambiar Abonado/CTA Pagadora</a></li>
+                            <li><a href="#">Cambiar Número</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="menu-horizontal">
+                    <li>
+                        <a href="#" class="boton boton-2">Generar Reporte <i class=' icon-bx bx bx-chevron-down'></i></a>
+                        <ul class="menu-vertical menu-vertical-modifier-2">
+                            <li><a href="#">Página en Construcción</a></li>
+                            <li><a href="#">Página en Construcción</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
+
             <div class="columna">
                 <form action="" method="post">
                     <input type="submit" class="boton-2 boton" value="Cerrar Sesión" name="cerrar">
@@ -47,8 +53,8 @@
             </div>
         </div>
     </div>
-    <script src="js/desplegableCliente.js"></script>
+    <!-- <script src="js/desplegableCliente.js"></script>
     <script src="js/desplegableServicios.js"></script>
-    <script src="js/desplegableReportes.js"></script>
+    <script src="js/desplegableReportes.js"></script> -->
 </body>
 </html>

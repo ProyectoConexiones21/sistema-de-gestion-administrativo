@@ -37,8 +37,9 @@ ul{
     border: 3px solid #ffffff;
 }
 .conteiner-modificado{
-    width: 80%;
-    height: 450px;
+    width: 60%;
+    height: 80%;
+    padding: 30px;
 }
 
 .img{
@@ -46,8 +47,8 @@ ul{
     margin: 20px 20px 20px 20px;
 }
 .img-2{
-    width: 50%;
-    margin: 0px 0px -15px 0px;
+    width: 40%;
+    margin: 0px 0px -10px 0px;
 }
 
 .formulario-box{
@@ -130,7 +131,7 @@ ul{
 
 }
 
-.boton:hover, .menu-link:hover, .menu-link_s:hover, .menu-link_r:hover{
+.boton:hover{
     background: $gradiente;
     color: #ffffff;
     border: 2px solid #ffffff;
@@ -146,58 +147,62 @@ ul{
     align-items: center;
     justify-content: center;
     background: #ffffff;
-    width: 400px;
-    height: 60px;
+    width: 350px;
+    height: 50px;
     text-align: center;
-    margin: 60px 0 0px 0;
+    margin: 30px 0 0px 0;
+    font-size: 1.2rem;
 }
 
 .icon-bx{
     font-weight: 600;
-    font-size: 40px;
+    font-size: 1.5rem;
     margin: 0 0 0 15px;
+    transition: height .3s ease-in-out;
 }
 
 /* ------------------------------------Menu desplegable------------------------------------*/
 
-
-.menu, .menu_s, .menu_r {
-    position: absolute;
-    width: 404px;
-    padding: 0;
-    margin-top: -8px;
-    list-style: none;
-    background: #ffffff;
+.menu-vertical li a{
+    display: block;
     text-align: center;
-    height: 0;
+    padding: 10px;
+    background: #ffffff;
+    font-family: $font-principal;
+    color: #000000;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.menu-vertical{
+    position: relative;
+    margin-top: -7px;
+    width: 354px;
     overflow: hidden;
+    height: 0;
+    border-radius: 0 0 10px 10px;
     transition: height .3s ease-in-out;
 }
 
-.menu-link, .menu-link_s, .menu-link_r{
-    padding: 15px;
-    
-    display: block;
-    color: #000000;
-    font-family: $font-principal;
-    font-size: 1rem;
-    font-weight: 600;
-    border: 2px solid transparent;
+.menu-vertical li a:hover{
+    background: $gradiente;
+    color: #ffffff;
 }
 
-.border{
-    border-radius: 0 0 10px 10px;
+.menu-horizontal li:hover .menu-vertical{
+    height: 105px;
+    width: 350px;
+    border: 2px solid #ffffff;
+}
+
+.menu-horizontal li:hover a .icon-bx{
+    transform: rotate(180deg);
+}
+.menu-horizontal li:hover .menu-vertical-modifier-2{
+    height: 70px;
+}
+.menu-horizontal li:hover .menu-vertical-modifier{
+    height: 144px;
 }
 
 
-.mostrar, .mostrar_s, .mostrar_r{
-    margin-top: -8px;
-    height: 120px;
-    width: 404px;
-    border-radius: 0 0 10px 10px;
-   /*  border: 2px solid transparent; */
-}
-
-.mostrar_s{
-    height: 290px;
-}
