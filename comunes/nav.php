@@ -3,13 +3,13 @@
             <img src="img/Movistar blanco.svg" alt="" class="logo-img">
         </div>
         <ul class="nav-horizontal">
-            <li><a href="#">Registrar Usuario</a></li>
+            <li><a href="?pagina=registrarUsuario">Registrar Usuario</a></li>
             <li>
-                <a href="">Gestionar Cliente <i class=' icon-nav-h bx bx-chevron-down'></i></a>
+                <a href="#">Gestionar Cliente <i class=' icon-nav-h bx bx-chevron-down'></i></a>
 
                 <ul class="nav-vertical">
-                    <li><a href="#">Registrar Cliente Prepago</a></li>
-                    <li><a href="#">Registrar Cliente Corporativo</a></li>
+                    <li><a href="?pagina=registrarClientePrepago">Registrar Cliente Prepago</a></li>
+                    <li><a href="?pagina=registrarClienteCorporativo">Registrar Cliente Corporativo</a></li>
                     <li><a href="#">Actualizar Datos</a></li>
                 </ul>
             </li>
@@ -17,7 +17,7 @@
                 <a href="">Gestionar Servicios <i class=' icon-nav-h bx bx-chevron-down'></i></a>
 
                 <ul class="nav-vertical nav-vertical-modifier-s">
-                    <li><a href="#">Incluir Linia Nueva</a></li>
+                    <li><a href="?pagina=incluirLineaNueva">Incluir Línea Nueva</a></li>
                     <li><a href="#">Remplazar SIM Card</a></li>
                     <li><a href="#">Cambiar Abonado/CTA Pagadora</a></li>
                     <li><a href="#">Cambiar Número</a></li>

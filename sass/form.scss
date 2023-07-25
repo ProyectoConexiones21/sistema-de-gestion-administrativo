@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+$gradiente-banner: linear-gradient(165deg, rgba(9,9,121,0.7371323529411764) 40%, rgba(0,212,255,0.7371323529411764) 85%);
+$gradiente: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+$azulMovistar: #00ABE1;
+$font-principal:'Kanit', sans-serif;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.conteiner-form{
+    width: 100%;
+    background: red;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.title{
+    color: #000000;
+}

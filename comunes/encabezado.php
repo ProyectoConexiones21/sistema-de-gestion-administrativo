@@ -4,4 +4,5 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="css/main.css" rel="stylesheet">
     <link href="css/nav.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
     <title>Sistema de administracion</title>
