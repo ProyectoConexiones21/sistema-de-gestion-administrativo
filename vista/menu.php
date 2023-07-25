@@ -11,10 +11,10 @@
             </div> 
             
             <div class="columna">
-                <a href="#" class="boton boton-2">Registrar Usuario</a>
+                <a href="#" class="boton boton-2 border">Registrar Usuario</a>
                 <ul class="menu-horizontal">
                     <li>
-                        <a href="#" class="boton boton-2">Gestionar Cliente <i class=' icon-bx bx bx-chevron-down'></i></a>
+                        <a href="#" class="boton boton-2 border">Gestionar Cliente <i class=' icon-bx bx bx-chevron-down'></i></a>
                         <ul class="menu-vertical">
                             <li><a href="#">Registrar Cliente Prepago</a></li>
                             <li><a href="#">Registrar Cliente Corporativo</a></li>
@@ -26,7 +26,7 @@
             <div class="columna">
                 <ul class="menu-horizontal">
                     <li>
-                        <a href="#" class="boton boton-2">Gestionar Servicios <i class=' icon-bx bx bx-chevron-down'></i></a>
+                        <a href="#" class="boton boton-2 border">Gestionar Servicios <i class=' icon-bx bx bx-chevron-down'></i></a>
                         <ul class="menu-vertical menu-vertical-modifier">
                             <li><a href="#">Incluir Linia Nueva</a></li>
                             <li><a href="#">Remplazar SIM Card</a></li>
@@ -37,7 +37,7 @@
                 </ul>
                 <ul class="menu-horizontal">
                     <li>
-                        <a href="#" class="boton boton-2">Generar Reporte <i class=' icon-bx bx bx-chevron-down'></i></a>
+                        <a href="#" class="boton boton-2 border">Generar Reporte <i class=' icon-bx bx bx-chevron-down'></i></a>
                         <ul class="menu-vertical menu-vertical-modifier-2">
                             <li><a href="#">Página en Construcción</a></li>
                             <li><a href="#">Página en Construcción</a></li>
