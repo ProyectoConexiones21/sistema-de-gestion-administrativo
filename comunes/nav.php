@@ -36,7 +36,7 @@
             <li>
                 <a href="#"><i class='icon-user bx bx-user-circle'></i></a>
                 <ul class="nav-vertical nav-vertical-modifier-u">
-                    <li><a href="#">Menu Principal <i class='icon-alt bx bx-home-alt' ></i></a></li>
+                    <li><a href="?pagina=menu">Menu Principal <i class='icon-alt bx bx-home-alt' ></i></a></li>
                     <li><a href="#">Cerrar Sesión <i class='icon-alt bx bx-door-open'></i></a></li>
                 </ul>
             </li>

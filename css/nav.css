@@ -48,6 +48,7 @@ ul {
   height: 0;
   transition: height 0.3s ease-in-out;
   background: #00ABE1;
+  z-index: 2;
 }
 
 .nav-vertical li a {
@@ -65,15 +66,15 @@ ul {
 }
 
 .nav-horizontal li:hover .nav-vertical {
-  height: 99px;
+  height: 115px;
 }
 
 .nav-horizontal li:hover .nav-vertical-modifier-s {
-  height: 132px;
+  height: 152px;
 }
 
 .nav-horizontal li:hover .nav-vertical-modifier-r {
-  height: 66px;
+  height: 76px;
 }
 
 .icon-user {
@@ -93,5 +94,5 @@ ul {
 }
 
 .nav-horizontal li:hover .nav-vertical-modifier-u {
-  height: 67px;
+  height: 76px;
 }/*# sourceMappingURL=nav.css.map */

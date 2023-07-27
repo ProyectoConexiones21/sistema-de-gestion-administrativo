@@ -7,20 +7,116 @@ $font-principal:'Kanit', sans-serif;
 *{
     margin: 0;
     padding: 0;
+    font-family: $font-principal;
 }
 
 a{
     text-decoration: none;
 }
 
-.conteiner-form{
+.conteiner{
     width: 100%;
-    background: red;
-    height: 100vh;
+    background: #ffffff;
+    height: calc(110vh - 80px);
     display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.title-box{
+    margin: 10px;
 }
 
 .title{
+    color: #000000;
+    margin: 10px;
+}
+
+.form-contenedor{
+    width:70%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #ffffff;
+    border: 2px solid $azulMovistar;
+    border-radius: 20px;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+.form-contenedor form{
+    width: 80%;
+    height: 100%;
+}
+.form-box{
+    position: relative;
+    margin: 30px 30px  30px 30px;
+    width: 500px;
+    height: 45px;
+    background: #ffffff;
+    border: 2px solid $azulMovistar;
+    border-radius: 20px;
+}
+
+.form-name{
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    font-weight: 500;
+    color: #000000;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: 0.5s;
+}
+
+.form-box input:focus~label,
+.form-box input:valid~label{
+    top: -22px;
+}
+
+.form-box input{
+    background: transparent;
+    position: absolute;
+    padding: 0px 20px 0px 20px;
+    height: 100%;
+    top: 0px;
+    left: 3px;
+    border-radius: 20px;
+    outline: none;
+    width: 85%;
+    border: none;
+    font-weight: 500;
+    font-family: $font-principal;
+}
+.box-modi{
+    margin: 40px 0 30px 0;
+    width: 45%;
+}
+
+.opciones{
+    margin-bottom: 10px;
+    font-weight: 600;
+    background: $azulMovistar;
+    border: 2px solid #ffffff;
+    transition: 0.5s;
+}
+.opciones input{
+    color: #ffffff;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+
+}
+.opciones:hover{
+    background: #ffffff;
+    border: 2px solid $azulMovistar;
+}
+.opciones:hover input{
     color: #000000;
 }
