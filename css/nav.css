@@ -13,12 +13,17 @@ ul {
 }
 
 .nav-conteiner {
-  background: #00ABE1;
+  position: relative;
+  background: rgba(255, 255, 255, 0.2078431373);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  border-bottom: 1px solid #ffffff;
   width: 100%;
   height: 80px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  z-index: 2;
 }
 
 .logo-img {
@@ -41,18 +46,20 @@ ul {
 }
 
 .nav-vertical {
+  background: #ffffff;
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
   position: absolute;
   width: 240px;
+  height: 0px;
   margin-top: 28px;
   overflow: hidden;
-  height: 0;
   transition: height 0.3s ease-in-out;
-  background: #00ABE1;
-  z-index: 2;
+  z-index: 1;
 }
 
 .nav-vertical li a {
-  color: #ffffff;
+  color: #000000;
   font-size: 0.8rem;
 }
 
@@ -62,11 +69,11 @@ ul {
 }
 
 .nav-vertical li:hover {
-  border: 2px solid #ffffff;
+  border: 2px solid #00ABE1;
 }
 
 .nav-horizontal li:hover .nav-vertical {
-  height: 115px;
+  height: 114px;
 }
 
 .nav-horizontal li:hover .nav-vertical-modifier-s {

@@ -2,7 +2,7 @@
 
 require_once('modelo/datos.php');
 
-class inicioSesion extends datos{
+class inicio extends datos{
     
     private $usuario;
     private $contraseña;
@@ -21,9 +21,13 @@ class inicioSesion extends datos{
         return $this->contraseña;
     }
 
-    function iniciarSesion(){
-        return $pagina="menuPrincipal";
-    }
+    function ingresar(){
+		return 'vista/menu.php';
+	}
+
+    
 }
+
+
 
 ?>

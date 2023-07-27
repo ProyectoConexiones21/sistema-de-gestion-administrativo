@@ -13,11 +13,22 @@ $font-principal:'Kanit', sans-serif;
 a{
     text-decoration: none;
 }
+.span{
+    color: #ffffff;
+    position: relative;
+    top: 50px;
+    font-size: 0.8rem;
+}
 
+.fond{
+    background-size: cover;
+    background-image: $gradiente-banner, url(banner.jpg);
+    height: auto;
+    width: 100%;
+}
 .conteiner{
     width: 100%;
-    background: #ffffff;
-    height: calc(110vh - 80px);
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,20 +40,23 @@ a{
 }
 
 .title{
-    color: #000000;
+    color: #ffffff;
     margin: 10px;
 }
 
 .form-contenedor{
     width:70%;
-    height: 80%;
+    height: auto;
+    margin-bottom: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: #ffffff;
-    border: 2px solid $azulMovistar;
+    background: #ffffff35;
+    backdrop-filter: blur(50px);
+    border: 2px solid #ffffff;
     border-radius: 20px;
+    z-index: 1;
 }
 
 .row{
@@ -55,12 +69,15 @@ a{
 }
 .form-box{
     position: relative;
-    margin: 30px 30px  30px 30px;
+    margin: 50px 30px  10px 30px;
     width: 500px;
     height: 45px;
-    background: #ffffff;
-    border: 2px solid $azulMovistar;
+    background: #ffffff15;
+    backdrop-filter: blur(50px);
+    border: 2px solid #ffffff;
     border-radius: 20px;
+    display: flex;
+    flex-direction: row;
 }
 
 .form-name{
@@ -68,7 +85,7 @@ a{
     top: 50%;
     left: 12px;
     font-weight: 500;
-    color: #000000;
+    color: #e9e9e9;
     pointer-events: none;
     transform: translateY(-50%);
     transition: 0.5s;
@@ -90,33 +107,38 @@ a{
     outline: none;
     width: 85%;
     border: none;
+    color: #ffffff;
+    font-size: 1rem;
     font-weight: 500;
     font-family: $font-principal;
 }
 .box-modi{
-    margin: 40px 0 30px 0;
+    margin: 50px 0 10px 0;
     width: 45%;
 }
 
 .opciones{
     margin-bottom: 10px;
     font-weight: 600;
-    background: $azulMovistar;
+    margin-bottom:50px;
+    background: #ffffff;
     border: 2px solid #ffffff;
-    transition: 0.5s;
+    
 }
 .opciones input{
-    color: #ffffff;
+    color: #000000;
     width: 100%;
     top: 0;
     left: 0;
     border-radius: 20px;
+    transition: 0.5s;
 
 }
 .opciones:hover{
-    background: #ffffff;
-    border: 2px solid $azulMovistar;
+    background: $gradiente;
+    border: 2px solid #ffffff;
 }
 .opciones:hover input{
-    color: #000000;
+    color: #ffffff;
 }
+

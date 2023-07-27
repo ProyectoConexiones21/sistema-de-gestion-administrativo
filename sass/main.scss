@@ -28,7 +28,7 @@ ul{
     justify-content: center;
 }
 .contenedor{
-    background: #ffffff31;
+    background: #ffffff35;
     backdrop-filter: blur(50px);
     width: 300px;
     height: 400px;
@@ -52,9 +52,10 @@ ul{
 }
 
 .formulario-box{
+   
+    position: relative;
     background: #ffffff31;
     backdrop-filter: blur(50px);
-    position: relative;
     width: 95%;
     height: 45px;
     margin: 30px 0 40px 0;
@@ -161,47 +162,50 @@ ul{
     transition: height .3s ease-in-out;
 }
 
-/* ------------------------------------Menu desplegable------------------------------------*/
-
-.menu-vertical li a{
-    display: block;
-    text-align: center;
-    padding: 10px;
-    background: #ffffff;
-    font-family: $font-principal;
-    color: #000000;
-    font-size: 0.7rem;
-    font-weight: 500;
+.conteiner-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.menu-vertical{
-    position: relative;
-    margin-top: -7px;
-    width: 354px;
-    overflow: hidden;
-    height: 0;
-    border-radius: 0 0 10px 10px;
-    transition: height .3s ease-in-out;
+.img-empresa-box{
+    width: 50%;
+    height: auto;
+}
+.img-empresa{
+    width: 70%;
+    margin: 50px
+    ;
 }
 
-.menu-vertical li a:hover{
-    background: $gradiente;
-    color: #ffffff;
-}
-
-.menu-horizontal li:hover .menu-vertical{
-    height: 105px;
-    width: 350px;
+.content{
+    width: 50%;
+    background: #ffffff35;
+    backdrop-filter: blur(50px);
+    padding: 40px;
     border: 2px solid #ffffff;
-}
-.menu-horizontal li:hover a .icon-bx{
-    transform: rotate(180deg);
-}
-.menu-horizontal li:hover .menu-vertical-modifier-2{
-    height: 70px;
-}
-.menu-horizontal li:hover .menu-vertical-modifier{
-    height: 144px;
+    border-radius: 20px;
+    text-align: center;
+    margin: 50px;
+    color: #ffffff;
+    font-family: $font-principal;
+    font-weight: 600;
 }
 
-
+.content-title{
+    margin-bottom: 20px;
+}
+.text{
+    text-align: justify;
+}
+.content-promo{
+    color: #ffffff;
+    width: 60%;
+    padding: 50px;
+    margin-bottom: 30px;
+    background: #ffffff35;
+    backdrop-filter: blur(50px);
+    text-align: center;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+}

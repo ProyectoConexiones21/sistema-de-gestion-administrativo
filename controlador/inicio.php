@@ -1,6 +1,6 @@
 <?php
 
-if(!empty($_POST["btningresar"])){
+ if(!empty($_POST["btningresar"])){
     
 }
 if(!empty($_POST["btningresar"]) and !empty($_POST["usuario"]) and !empty($_POST["contraseña"])){
@@ -12,7 +12,9 @@ if(!empty($_POST["btningresar"]) and !empty($_POST["usuario"]) and !empty($_POST
         $pagina="menu";
     }
 
-}
+} 
+
+
 if(is_file("vista/".$pagina.".php")){
     require_once("vista/".$pagina.".php");
 }
