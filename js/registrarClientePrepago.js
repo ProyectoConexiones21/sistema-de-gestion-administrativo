@@ -20,6 +20,7 @@ $(document).ready(function(){
 		$(this),$("#sapellido"),"Solo letras");
 	});
 
+	//validar cedula
 	$("#cedula").on("keypress",function(e){
 		validarkeypress(/^[VE0-9-\b]*$/,e);
 	});
@@ -39,6 +40,7 @@ $(document).ready(function(){
 		$(this),$("#sdireccion"),"Solo letras y/o numeros entre 6 y 35 caracteres");
 	});
 
+	//validar telefono
 	$("#telefono").on("keypress",function(e){
 		validarkeypress(/^[0-9\b-]*$/,e);
 	});
@@ -47,6 +49,7 @@ $(document).ready(function(){
 	    validarkeyup(/^[0-9]{4}[-]{1}[0-9]{7,8}$/,$(this),$("#stelefono"),"El formato debe ser 0400-0000000");
 	});
 
+	//validar correo
 	$("#correo").on("keypress",function(e){
 		validarkeypress(/^[A-Za-z@_.\b\u00f1\u00d1\u00E0-\u00FC-]*$/,e);
 	});
@@ -90,6 +93,7 @@ $(document).ready(function(){
 })
 
 function validarenvio(){
+	//validar nombre
 	if(validarkeyup(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]{1,50}$/,
 		$("#nombre"),$("#snombre"),"Solo letras")==0){
 		muestraMensaje("el nombre solo contiene letras");
@@ -131,7 +135,7 @@ function validarenvio(){
 	return true;
 }
 
-
+ 
 function validarkeypress(er,e){
 	
 	key = e.keyCode;

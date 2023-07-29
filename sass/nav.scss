@@ -51,7 +51,7 @@ ul{
 }
 
 .nav-vertical{
-    background: #ffffff;
+    background: #ffffff35;
     backdrop-filter: blur(50px);
     position: absolute;
     width: 240px;
@@ -63,7 +63,7 @@ ul{
 }
 
 .nav-vertical li a{
-    color: #000000;
+    color: #ffffff;
     font-size: .8rem;
 }
 
@@ -73,7 +73,7 @@ ul{
 }
 
 .nav-vertical li:hover{
-    border: 2px solid $azulMovistar;
+    border: 2px solid #ffffff;
 }
 
 .nav-horizontal li:hover .nav-vertical{
