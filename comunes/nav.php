@@ -17,7 +17,7 @@
                 <a href="">Gestionar Servicios <i class=' icon-nav-h bx bx-chevron-down'></i></a>
 
                 <ul class="nav-vertical nav-vertical-modifier-s">
-                    <li><a href="?pagina=incluirLineaNuev">Incluir Línea Nueva</a></li>
+                    <li><a href="?pagina=incluirLineaNueva">Incluir Línea Nueva</a></li>
                     <li><a href="?pagina=remplazarSIM">Remplazar SIM Card</a></li>
                     <li><a href="?pagina=cambiarAbonado">Cambiar Abonado/CTA Pagadora</a></li>
                     <li><a href="?pagina=cambiarNumero">Cambiar Número</a></li>

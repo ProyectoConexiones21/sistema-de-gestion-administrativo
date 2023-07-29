@@ -12,7 +12,8 @@
                 <h1 class="title">Registrar Usuario</h1>
             </div>
             <div class="form-contenedor">
-            <form action="" method="post">
+            <form action="" method="post" name="f" id="f">
+                <input type="text" name="accion" id="accion" style="display: none;">
                     <div class="row">
                         <div class="form-box box-modi">
                             <input type="text" name="cedula" id="cedula" required>

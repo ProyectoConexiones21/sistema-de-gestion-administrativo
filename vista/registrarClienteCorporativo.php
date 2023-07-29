@@ -12,7 +12,8 @@
                 <h1 class="title">Registrar Cliente Corporativo</h1>
             </div>
             <div class="form-contenedor">
-            <form action="" method="post">
+            <form action="" method="post" id="f" name="f">
+                <input type="text" name="accion" id="accion" style="display: none;">
                     <div class="row">
                         <div class="form-box">
                             <input type="text" name="rif" id="rif" required>
@@ -78,6 +79,6 @@
         </div>
     </section>
     </div>
-    <script type="text/javascript" src="js/registrarUsuario.js"></script>
+    <script type="text/javascript" src="js/registrarClienteCorporativo.js"></script>
 </body>
 </html>

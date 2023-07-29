@@ -12,7 +12,8 @@
                 <h1 class="title">Registrar Cliente Prepago</h1>
             </div>
             <div class="form-contenedor">
-            <form action="" method="post">
+            <form action="" method="post" name="f" id="f">
+                <input type="text" id="accion" name="accion" style="display: none;">
                     <div class="row">
                         <div class="form-box">
                             <input type="text" name="nombre" id="nombre" required>
@@ -52,13 +53,13 @@
                     </div>
                     <div class="row">
                         <div class="form-box opciones">
-                            <input type="button" value="Guardar Usuario" id="guardar" name="guardar">
+                            <input type="button" value="Guardar Cliente" id="guardar" name="guardar">
                         </div>
                         <div class="form-box opciones">
-                            <input type="button" value="Modificar Usuario" id="modificar" name="modificar">
+                            <input type="button" value="Modificar Cliente" id="modificar" name="modificar">
                         </div>
                         <div class="form-box opciones">
-                            <input type="button" value="Eliminar Usuario" id="eliminar" name="eliminar">
+                            <input type="button" value="Eliminar Cliente" id="eliminar" name="eliminar">
                         </div>
                     </div>
                 </form>
@@ -66,6 +67,6 @@
         </div>
     </section>
     </div>
-    <script type="text/javascript" src="js/registrarUsuario.js"></script>
+    <script type="text/javascript" src="js/registrarClientePrepago.js"></script>
 </body>
 </html>
