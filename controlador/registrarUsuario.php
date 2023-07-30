@@ -15,8 +15,10 @@ if(is_file('vista/'.$pagina.'.php')){
     if(isset($_POST['accion'])){
 
         $o->set_cedula($_POST['cedula']);
-        $o->set_nombre($_POST['nombre']);
-        $o->set_apellido($_POST['apellido']);
+        $o->set_priNombre($_POST['priNombre']);
+        $o->set_segNombre($_POST['segNombre']);
+        $o->set_priApellido($_POST['priApellido']);
+        $o->set_segApellido($_POST['segApellido']);
         $o->set_usuario($_POST['usuario']);
         $o->set_contraseña($_POST['contraseña']);
 

@@ -22,22 +22,42 @@ $(document).ready(function(){
 
 	//Validacion de nombre
 	$("#nombre").on("keypress",function(e){
-		validarkeypress(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]*$/,e);
+		validarkeypress(/^[A-Za-z]*$/,e);
 	});
 	
 	$("#nombre").on("keyup",function(){
-		validarkeyup(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]{1,50}$/,
+		validarkeyup(/^[A-Za-z]{1,50}$/,
 		$(this),$("#snombre"),"Solo letras");
+	});
+
+	//Validacion de nombre
+	$("#seg-nombre").on("keypress",function(e){
+		validarkeypress(/^[A-Za-z]*$/,e);
+	});
+	
+	$("#seg-nombre").on("keyup",function(){
+		validarkeyup(/^[A-Za-z]{1,50}$/,
+		$(this),$("#s-seg-nombre"),"Solo letras");
 	});
 
 	//Validacion de apellido
 	$("#apellido").on("keypress",function(e){
-		validarkeypress(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]*$/,e);
+		validarkeypress(/^[A-Za-z]*$/,e);
 	});
 	
 	$("#apellido").on("keyup",function(){
-		validarkeyup(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]{1,50}$/,
+		validarkeyup(/^[A-Za-z]{1,50}$/,
 		$(this),$("#sapellido"),"Solo letras");
+	});
+
+	//Validacion de apellido
+	$("#seg-apellido").on("keypress",function(e){
+		validarkeypress(/^[A-Za-z]*$/,e);
+	});
+	
+	$("#seg-apellido").on("keyup",function(){
+		validarkeyup(/^[A-Za-z]{1,50}$/,
+		$(this),$("#s-seg-apellido"),"Solo letras");
 	});
 
 	//Validacion de cedula
@@ -126,15 +146,26 @@ function validarenvio(){
 		muestraMensaje("letras y numeros entre 1 a 50");
 		return false;
 	}
-	//validar nombre
-	else if(validarkeyup(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]{1,50}$/,
+	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
 		$("#nombre"),$("#snombre"),"Solo letras")==0){
 		muestraMensaje("el nombre solo contiene letras");
 		return false;
 	}
-	//validar apellido
-	else if(validarkeyup(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]{1,50}$/,
+
+	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
+		$("#seg-nombre"),$("#s-seg-nombre"),"Solo letras")==0){
+		muestraMensaje("el nombre solo contiene letras");
+		return false;
+	}
+
+	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
 		$("#apellido"),$("#sapellido"),"Solo letras")==0){
+		muestraMensaje("el apellido solo contiene letras");
+		return false;
+	}
+
+	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
+		$("#seg-apellido"),$("#s-seg-apellido"),"Solo letras")==0){
 		muestraMensaje("el apellido solo contiene letras");
 		return false;
 	}

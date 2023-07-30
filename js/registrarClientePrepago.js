@@ -1,25 +1,5 @@
 $(document).ready(function(){
 
-	//Validacion de nombre
-	$("#nombre").on("keypress",function(e){
-		validarkeypress(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]*$/,e);
-	});
-	
-	$("#nombre").on("keyup",function(){
-		validarkeyup(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]{1,50}$/,
-		$(this),$("#snombre"),"Solo letras");
-	});
-
-	//Validacion de apellido
-	$("#apellido").on("keypress",function(e){
-		validarkeypress(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]*$/,e);
-	});
-	
-	$("#apellido").on("keyup",function(){
-		validarkeyup(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]{1,50}$/,
-		$(this),$("#sapellido"),"Solo letras");
-	});
-
 	//validar cedula
 	$("#cedula").on("keypress",function(e){
 		validarkeypress(/^[VE0-9-\b]*$/,e);
@@ -28,6 +8,56 @@ $(document).ready(function(){
 	$("#cedula").on("keyup",function(){
 		validarkeyup(/^[VE]{1}[-]{1}[0-9]{7,8}$/,$(this),
 		$("#scedula"),"El formato debe ser V-00000000 o E-00000000 ");
+	});
+
+	//Validacion de nombre
+	$("#nombre").on("keypress",function(e){
+		validarkeypress(/^[A-Za-z]*$/,e);
+	});
+	
+	$("#nombre").on("keyup",function(){
+		validarkeyup(/^[A-Za-z]{1,50}$/,
+		$(this),$("#snombre"),"Solo letras");
+	});
+
+	//Validacion de nombre
+	$("#seg-nombre").on("keypress",function(e){
+		validarkeypress(/^[A-Za-z]*$/,e);
+	});
+	
+	$("#seg-nombre").on("keyup",function(){
+		validarkeyup(/^[A-Za-z]{1,50}$/,
+		$(this),$("#s-seg-nombre"),"Solo letras");
+	});
+
+	//Validacion de apellido
+	$("#apellido").on("keypress",function(e){
+		validarkeypress(/^[A-Za-z]*$/,e);
+	});
+	
+	$("#apellido").on("keyup",function(){
+		validarkeyup(/^[A-Za-z]{1,50}$/,
+		$(this),$("#sapellido"),"Solo letras");
+	});
+
+	//Validacion de apellido
+	$("#seg-apellido").on("keypress",function(e){
+		validarkeypress(/^[A-Za-z]*$/,e);
+	});
+	
+	$("#seg-apellido").on("keyup",function(){
+		validarkeyup(/^[A-Za-z]{1,50}$/,
+		$(this),$("#s-seg-apellido"),"Solo letras");
+	});
+
+	//validar rif
+	$("#rif").on("keypress",function(e){
+		validarkeypress(/^[VE0-9]*$/,e);
+	});
+	
+	$("#rif").on("keyup",function(){
+		validarkeyup(/^[VE]{1}[0-9]{9}$/,$(this),
+		$("#srif"),"El formato debe ser V000000000 o E000000000");
 	});
 
 	//validar direccion
@@ -93,23 +123,43 @@ $(document).ready(function(){
 })
 
 function validarenvio(){
+
+	
+	if(validarkeyup(/^[VE]{1}[-]{1}[0-9]{7,8}$/,$("#cedula"),
+		$("#scedula"),"El formato debe ser V-00000000 o E-00000000 ")==0){
+		muestraMensaje("El formato debe ser V-00000000 o E-00000000 ");	
+		return false;					
+	}	
 	//validar nombre
-	if(validarkeyup(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]{1,50}$/,
+	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
 		$("#nombre"),$("#snombre"),"Solo letras")==0){
 		muestraMensaje("el nombre solo contiene letras");
 		return false;
 	}
-	else if(validarkeyup(/^[A-Za-z-\b\s\u00f1\u00d1\u00E0-\u00FC-]{1,50}$/,
+
+	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
+		$("#seg-nombre"),$("#s-seg-nombre"),"Solo letras")==0){
+		muestraMensaje("el nombre solo contiene letras");
+		return false;
+	}
+
+	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
 		$("#apellido"),$("#sapellido"),"Solo letras")==0){
 		muestraMensaje("el apellido solo contiene letras");
 		return false;
 	}
 
-	else if(validarkeyup(/^[VE]{1}[-]{1}[0-9]{7,8}$/,$("#cedula"),
-		$("#scedula"),"El formato debe ser V-00000000 o E-00000000 ")==0){
-		muestraMensaje("El formato debe ser V-00000000 o E-00000000 ");	
-		return false;					
-	}	
+	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
+		$("#seg-apellido"),$("#s-seg-apellido"),"Solo letras")==0){
+		muestraMensaje("el apellido solo contiene letras");
+		return false;
+	}
+
+	else if(validarkeyup(/^[VE]{1}[0-9]{9}$/,$("#rif"),
+		$("#srif"),"El formato debe ser V000000000 o E000000000")==0){
+		muestraMensaje("El formato debe ser V000000000 o E000000000");	
+		return false;
+		}
 
 	else if(validarkeyup(/^[A-Za-z0-9,#\b\s\u00f1\u00d1\u00E0-\u00FC-]{6,35}$/,
 		$("#direccion"),$("#sdireccion"),"Solo letras y/o numeros entre 6 y 35 caracteres")==0){

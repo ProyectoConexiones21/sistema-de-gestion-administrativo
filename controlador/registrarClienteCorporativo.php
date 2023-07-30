@@ -16,8 +16,10 @@ if(is_file("vista/".$pagina.".php")){
 
         $o->set_rif($_POST['rif']);
         $o->set_nombreEmpresa($_POST['nombreEmpresa']);
-        $o->set_nombre($_POST['nombre']);
-        $o->set_apellido($_POST['apellido']);
+        $o->set_priNombre($_POST['priNombre']);
+        $o->set_segNombre($_POST['segNombre']);
+        $o->set_priApellido($_POST['priApellido']);
+        $o->set_segApellido($_POST['segApellido']);
         $o->set_cedula($_POST['cedula']);
         $o->set_direccion($_POST['direccion']);
         $o->set_telefono($_POST['telefono']);
