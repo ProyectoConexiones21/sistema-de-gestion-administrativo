@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap");
+/*-----------------------------Estilos Responsive-----------------------------*/
+/*-------------------------------inicio-------------------------------*/
+@media screen and (max-width: 470px) {
+  .contenedor {
+    width: 250px;
+    height: 350px;
+  }
+  .formulario-box {
+    height: 40px;
+  }
+  .formulario-name {
+    font-size: 0.9rem;
+  }
+  .formulario {
+    font-size: 0.9rem;
+  }
+  .boton {
+    width: 80%;
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width: 330px) {
+  .contenedor {
+    width: 200px;
+    height: auto;
+  }
+  .formulario-box {
+    height: 40px;
+  }
+  .formulario-name {
+    font-size: 0.9rem;
+  }
+  .formulario {
+    font-size: 0.9rem;
+  }
+  .img {
+    width: 100%;
+  }
+}
+/*-------------------------------menu-------------------------------*/
+@media screen and (max-width: 1090px) {
+  .content {
+    width: 30%;
+  }
+}/*# sourceMappingURL=responsive.css.map */

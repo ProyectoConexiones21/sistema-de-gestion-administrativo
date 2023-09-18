@@ -1,3 +1,9 @@
+function guardar(){
+	var datos = new FormData();
+	datos.append('accion','guardar');
+	enviaAjax(datos);	
+}
+
 $(document).ready(function(){
 
 	//Validacion de cedula
@@ -8,46 +14,52 @@ $(document).ready(function(){
 	
 	$("#cedula").on("keyup",function(){
 		validarkeyup(/^[VE]{1}[-]{1}[0-9]{7,8}$/,$(this),
-		$("#scedula"),"El formato debe ser V-00000000 o E-00000000 ");
+		$("#scedula"),"El formato debe ser V-00000000 o E-00000000");
+		if($("#cedula").val().length > 7){
+		var datos = new FormData();
+			datos.append('accion','consultatr');
+			datos.append('cedula',$(this).val());
+			enviaAjax(datos,'consultatr');	
+		}
 	});
 
 
 	//Validacion de nombre
-	$("#nombre").on("keypress",function(e){
+	$("#priNombre").on("keypress",function(e){
 		validarkeypress(/^[A-Za-z]*$/,e);
 	});
 	
-	$("#nombre").on("keyup",function(){
+	$("#priNombre").on("keyup",function(){
 		validarkeyup(/^[A-Za-z]{1,50}$/,
 		$(this),$("#snombre"),"Solo letras");
 	});
 
 	//Validacion de nombre
-	$("#seg-nombre").on("keypress",function(e){
+	$("#segNombre").on("keypress",function(e){
 		validarkeypress(/^[A-Za-z]*$/,e);
 	});
 	
-	$("#seg-nombre").on("keyup",function(){
+	$("#segNombre").on("keyup",function(){
 		validarkeyup(/^[A-Za-z]{1,50}$/,
 		$(this),$("#s-seg-nombre"),"Solo letras");
 	});
 
 	//Validacion de apellido
-	$("#apellido").on("keypress",function(e){
+	$("#priApellido").on("keypress",function(e){
 		validarkeypress(/^[A-Za-z]*$/,e);
 	});
 	
-	$("#apellido").on("keyup",function(){
+	$("#priApellido").on("keyup",function(){
 		validarkeyup(/^[A-Za-z]{1,50}$/,
 		$(this),$("#sapellido"),"Solo letras");
 	});
 
 	//Validacion de apellido
-	$("#seg-apellido").on("keypress",function(e){
+	$("#segApellido").on("keypress",function(e){
 		validarkeypress(/^[A-Za-z]*$/,e);
 	});
 	
-	$("#seg-apellido").on("keyup",function(){
+	$("#segApellido").on("keyup",function(){
 		validarkeyup(/^[A-Za-z]{1,50}$/,
 		$(this),$("#s-seg-apellido"),"Solo letras");
 	});
@@ -75,33 +87,58 @@ $(document).ready(function(){
 
 	$("#guardar").on("click",function(){
 		if(validarenvio()){
-			$("#accion").val("guardar");	
-			$("#f").submit();
+			var datos = new FormData();
+			datos.append('accion','guardar');
+			datos.append('cedula',$("#cedula").val());
+			datos.append('priNombre',$("#priNombre").val());
+			datos.append('segNombre',$("#segNombre").val());
+			datos.append('priApellido',$("#priApellido").val());
+			datos.append('segApellido',$("#segApellido").val());
+			datos.append('usuario',$("#usuario").val());
+			datos.append('contraseña',$("#contraseña").val());
+			enviaAjax(datos,'incluir');
 		}
 	});
 	$("#modificar").on("click",function(){
-		if(validarkeyup(/^[VE]{1}[-]{1}[0-9]{7,8}$/,$("#cedula"),
-			$("#scedula"),"El formato debe ser V-00000000 o E-00000000 ")==0){
-			muestraMensaje("El formato debe ser V-00000000 o E-00000000 ");	
+		if(validarenvio()){
+	
+			var datos = new FormData();
+			datos.append('accion','modificar');
+			datos.append('cedula',$("#cedula").val());
+			datos.append('priNombre',$("#priNombre").val());
+			datos.append('segNombre',$("#segNombre").val());
+			datos.append('priApellido',$("#priApellido").val());
+			datos.append('segApellido',$("#segApellido").val());
+			datos.append('usuario',$("#usuario").val());
+			datos.append('contraseña',$("#contraseña").val());
+			enviaAjax(datos,'modificar');
 			
-		}
-		else{	
-			$("#accion").val("modificar");	
-			$("#f").submit();
 		}
 	});
+	
 	$("#eliminar").on("click",function(){
+		
 		if(validarkeyup(/^[VE]{1}[-]{1}[0-9]{7,8}$/,$("#cedula"),
-			$("#scedula"),"El formato debe ser V-00000000 o E-00000000 ")==0){
-			muestraMensaje("El formato debe ser V-00000000 o E-00000000 ");	
+			$("#scedula"),"El formato debe ser 9999999")==0){
+			muestraMensaje("El formato debe ser V-00000000 o E-00000000");	
 			
 		}
 		else{	
-			$("#accion").val("eliminar");	
-			$("#f").submit();
+			
+			var datos = new FormData();
+			datos.append('accion','eliminar');
+			datos.append('cedula',$("#cedula").val());
+			enviaAjax(datos,'eliminar');
 		}
 		
 	});
+
+	$("#guardar").on("click",function(){
+	var datos = new FormData();
+	datos.append('accion','consultar');
+	enviaAjax(datos,'consultar');
+});
+	
 
 })
 
@@ -112,25 +149,25 @@ function validarenvio(){
 		return false;					
 	}	
 	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
-		$("#nombre"),$("#snombre"),"Solo letras")==0){
+		$("#priNombre"),$("#snombre"),"Solo letras")==0){
 		muestraMensaje("el nombre solo contiene letras");
 		return false;
 	}
 
 	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
-		$("#seg-nombre"),$("#s-seg-nombre"),"Solo letras")==0){
+		$("#segNombre"),$("#s-seg-nombre"),"Solo letras")==0){
 		muestraMensaje("el nombre solo contiene letras");
 		return false;
 	}
 
 	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
-		$("#apellido"),$("#sapellido"),"Solo letras")==0){
+		$("#priApellido"),$("#sapellido"),"Solo letras")==0){
 		muestraMensaje("el apellido solo contiene letras");
 		return false;
 	}
 
 	else if(validarkeyup(/^[A-Za-z]{1,50}$/,
-		$("#seg-apellido"),$("#s-seg-apellido"),"Solo letras")==0){
+		$("#segApellido"),$("#s-seg-apellido"),"Solo letras")==0){
 		muestraMensaje("el apellido solo contiene letras");
 		return false;
 	}
@@ -180,4 +217,83 @@ mensaje){
 		etiquetamensaje.text(mensaje);
 		return 0;
 	}
+}
+
+function coloca(linea){
+	$("#cedula").val($(linea).find("td:eq(0)").text());
+	$("#priNombre").val($(linea).find("td:eq(1)").text());
+	$("#segNombre").val($(linea).find("td:eq(2)").text());
+	$("#priApellido").val($(linea).find("td:eq(3)").text());
+	$("#segApellido").val($(linea).find("td:eq(4)").text());
+	$("#usuario").val($(linea).find("td:eq(5)").text());
+	$("#contraseña").val($(linea).find("td:eq(6)").text());
+	
+}
+
+function enviaAjax(datos,accion){
+
+	$.ajax({
+		async: true,
+        url: '',
+        type: 'POST',
+		contentType: false,
+        data: datos,
+		processData: false,
+	    cache: false,
+            success: function(respuesta){
+			
+			if(accion=='guardar'){
+				$("#resultadoconsulta").html(respuesta);
+			}
+			else if(accion=='consultatr'){
+				lee = JSON.parse(respuesta);
+				
+				if(lee['resultado']=='encontro'){  
+					$("#cedula").val(lee[0].cedula);
+					$("#priNombre").val(lee[0].priNombre);
+					$("#segNombre").val(lee[0].segNombre);
+					$("#priApellido").val(lee[0].priApellido);
+					$("#segApellido").val(lee[0].segApellido);
+					$("#usuario").val(lee[0].usuario);
+					$("#contraseña").val(lee[0].contraseña);
+					
+				}
+				else if(lee['resultado']=='noencontro'){
+
+				}
+				else {
+					muestraMensaje(lee['resultado']);
+				}
+				
+			
+			}
+			else if(accion=='obtienefecha'){
+				$("#fechadenacimiento").val(respuesta);
+			}
+			else{
+				limpia();
+				muestraMensaje(respuesta);
+				
+			}
+            },
+            error: function(){
+			muestraMensaje("Error con ajax");	
+            }
+			
+    }); 
+
+	function limpia(){
+		
+		$("#cedula").val("");
+		$("#priNombre").val("");
+		$("#segNombre").val("");
+		$("#priApellido").val("");
+		$("#segApellido").val("");
+		$("#usuario").val("");
+		$("#contraseña").val("");
+		
+		
+		
+	}
+	
 }

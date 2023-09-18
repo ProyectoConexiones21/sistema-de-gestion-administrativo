@@ -71,19 +71,192 @@ class registrarUsuario extends datos{
 
     function guardar(){
 		
-		return "";
+		if(!$this->existe($this->cedula)){
+            $co = $this->conectar();
+			$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            try {
+                $co->query("Insert into usuarios(
+                    cedula,
+                    priNombre,
+                    segNombre,
+                    priApellido,
+                    segApellido,
+                    usuario,
+                    contraseña
+                    )
+                    Values(
+                    '$this->cedula',
+                    '$this->priNombre',
+                    '$this->segNombre',
+                    '$this->priApellido',
+                    '$this->segApellido',
+                    '$this->usuario',
+                    '$this->contraseña'
+                    )");
+                    return "Registro incluido";
+        } catch(Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    else{
+        return "Ya existe la cedula que desea ingresar";
+    }
 	}
 	
 	function modificar(){
 		
-        return "";
+        $co = $this->conectar();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		if($this->existe($this->cedula)){
+			try {
+					$co->query("Update usuarios set 
+					    cedula = '$this->cedula',
+						priNombre = '$this->priNombre',
+						segNombre = '$this->segNombre',
+						priApellido = '$this->priApellido',
+						segApellido = '$this->segApellido',
+						usuario = '$this->usuario',
+                        contraseña = '$this->contraseña'
+						where
+						cedula = '$this->cedula'
+						");
+						return "Registro Modificado";
+			} catch(Exception $e) {
+				return $e->getMessage();
+			}
+		}
+		else{
+			return "Cedula no registrada";
+		}
 	}
 	
 	function eliminar(){
-		
-        return "";
+		$co = $this->conectar();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		if($this->existe($this->cedula)){
+			try {
+					$co->query("delete from usuarios 
+						where
+						cedula = '$this->cedula'
+						");
+						return "Registro Eliminado";
+			} catch(Exception $e) {
+				return $e->getMessage();
+			}
+		}
+		else{
+			return "Cedula no registrada";
+		}
 	}
-    
+
+    function consultar(){
+		$co = $this->conectar();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		try{
+			
+			$resultado = $co->query("Select * from usuarios");
+			
+			if($resultado){
+				
+				$respuesta = '';
+				foreach($resultado as $r){
+					$respuesta = $respuesta."</tr>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['cedula'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['priNombre'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['segNombre'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['priApellido'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['segApellido'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['usuario'];
+						$respuesta = $respuesta."</td>";
+                        $respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['contraseña'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.'<button type="button" id="modificar"><i class="bx bxs-edit-alt"></i></button>';
+						$respuesta = $respuesta."</td>";
+					$respuesta = $respuesta."</tr>";
+				}
+				return $respuesta;
+			    
+			}
+			else{
+				return '';
+			}
+			
+		}catch(Exception $e){
+			return $e->getMessage();
+		}
+		
+	}
+
+    private function existe($cedula){
+		$co = $this->conectar();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		try{
+			
+			$resultado = $co->query("Select * from usuarios where cedula='$cedula'");
+			
+			
+			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
+			if($fila){
+
+				return true;
+			    
+			}
+			else{
+				
+				return false;;
+			}
+			
+		}catch(Exception $e){
+			return false;
+		}
+	}
+    function consultatr(){
+		$co = $this->conectar();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		try{
+			
+			$resultado = $co->query("Select * from usuarios where cedula='$this->cedula'");
+			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
+			if($fila){
+			    
+				$envia = array('resultado'=>"encontro");
+				
+				$envia += $fila;
+								
+				return json_encode($envia);
+			    
+			}
+			else{
+				
+				$envia = array('resultado'=>"noencontro");
+				return json_encode($envia);
+				
+				
+			}
+			
+		}catch(Exception $e){
+			$envia = array('resultado'=>$e->getMessage());
+			return json_encode($envia);
+		}
+		
+	}
+
+
+
 }
 
 

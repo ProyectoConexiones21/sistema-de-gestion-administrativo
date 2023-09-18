@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+$gradiente-banner: linear-gradient(165deg, rgba(9,9,121,0.7371323529411764) 40%, rgba(0,212,255,0.7371323529411764) 85%);
+$gradiente: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+$font-principal:'Kanit', sans-serif;
+
+/*-----------------------------Estilos Responsive-----------------------------*/
+
+/*-------------------------------inicio-------------------------------*/
+
+@media screen and (max-width:470px){
+
+    .contenedor{
+        width: 250px;
+        height: 350px;
+    }
+    .formulario-box{
+        height: 40px;
+        
+    }
+    .formulario-name{
+        font-size: .9rem;
+    }
+    .formulario{
+        font-size: .9rem;
+    }
+    .boton{
+        width: 80%;
+        font-size: 1.2rem;
+    }
+
+}
+
+@media screen and (max-width:330px){
+
+    .contenedor{
+        width: 200px;
+        height: auto;
+    }
+    
+    .formulario-box{
+        height: 40px;
+        
+    }
+    .formulario-name{
+        font-size: .9rem;
+    }
+    .formulario{
+        font-size: .9rem;
+    }
+    .img{
+        width: 100%;
+    }
+
+}
+
+/*-------------------------------menu-------------------------------*/
+@media screen and (max-width:1090px){
+    .content{
+        width: 30%;
+    }
+}

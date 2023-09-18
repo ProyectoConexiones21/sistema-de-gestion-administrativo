@@ -4,8 +4,9 @@
 <?php require_once('comunes/encabezado.php'); ?>
 </head>
 <body>
-    <div class="fond ">
+    <div class="fond fond-2">
         <?php require_once("comunes/nav.php")?>
+        <section>
         <div class="conteiner">
             <div class="conteiner-content">
                 <div class="img-empresa-box">
@@ -24,6 +25,7 @@
                 Servicios
             </div>
         </div>
+        </section>
     </div>
 </body>
 </html>

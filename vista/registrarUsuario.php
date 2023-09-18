@@ -25,24 +25,24 @@
                     </div>
                     <div class="row">
                     <div class="form-box">
-                            <input type="text" name="priNombre" id="nombre" required>
+                            <input type="text" name="priNombre" id="priNombre" required>
                             <label class="form-name">Primer Nombre</label>
                             <div class="span"><span id="snombre" class=""></span></div>
                         </div>
                         <div class="form-box">
-                            <input type="text" name="segNombre" id="seg-nombre" required>
+                            <input type="text" name="segNombre" id="segNombre" required>
                             <label class="form-name">Segundo Nombre</label>
                             <div class="span"><span id="s-seg-nombre" class=""></span></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-box">
-                            <input type="text" name="priApellido" id="apellido" required>
+                            <input type="text" name="priApellido" id="priApellido" required>
                             <label class="form-name">Primer Apellido</label>
                             <div class="span"><span id="sapellido" class=""></span></div>
                         </div>
                         <div class="form-box">
-                            <input type="text" name="segApellido" id="seg-apellido" required>
+                            <input type="text" name="segApellido" id="segApellido" required>
                             <label class="form-name">Segundo Apellido</label>
                             <div class="span"><span id="s-seg-apellido" class=""></span></div>
                         </div>
@@ -60,15 +60,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-box opciones">
-                            <input type="button" value="Guardar Usuario" id="guardar" name="guardar">
-                        </div>
-                        <div class="form-box opciones">
-                            <input type="button" value="Modificar Usuario" id="modificar" name="modificar">
-                        </div>
-                        <div class="form-box opciones">
-                            <input type="button" value="Eliminar Usuario" id="eliminar" name="eliminar">
-                        </div>
+                        <button type="button" class="opciones" id="guardar" >Guardar Usuario</button>
+                        <button type="button" class="opciones" id="modificar" >Modificar Usuario</button>
+                        <button type="button" class="opciones" id="eliminar" >Eliminar Usuario</button>
+                        <button type="button" class="opciones" id="consultar" >Consultar Usuario</button>
                     </div>
                 </form>
             </div>
@@ -92,54 +87,12 @@
                             <th>Segundo Apellido</th>
                             <th>Usuario</th>
                             <th>Contraseña</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>V-29000000</td>
-                            <td>Leonardo</td>
-                            <td>Leonardo</td>
-                            <td>Medina</td>
-                            <td>Medina</td>
-                            <td>leonardom</td>
-                            <td>******</td>
-                        </tr>
-                        <tr>
-                            <td>V-27000000</td>
-                            <td>Ricardo</td>
-                            <td>Ricardo</td>
-                            <td>Hernández</td>
-                            <td>Hernández</td>
-                            <td>ricardoh</td>
-                            <td>******</td>
-                        </tr>
-                        <tr>
-                            <td>V-29000000</td>
-                            <td>Yonjarman</td>
-                            <td>Yonjarman</td>
-                            <td>Pérez</td>
-                            <td>Pérez</td>
-                            <td>yonjarp</td>
-                            <td>******</td>
-                        </tr>
-                        <tr>
-                            <td>V-29000000</td>
-                            <td>Moises</td>
-                            <td>Moises</td>
-                            <td>Torrellas</td>
-                            <td>Torrellas</td>
-                            <td>moisest</td>
-                            <td>******</td>
-                        </tr>
-                        <tr>
-                            <td>V-30000000</td>
-                            <td>Néstor</td>
-                            <td>Néstor</td>
-                            <td>Vargas</td>
-                            <td>Vargas</td>
-                            <td>nestorv</td>
-                            <td>******</td>
-                        </tr>
+                    <tbody id="resultadoconsulta">
+                        
                     </tbody>
                 </table>
             </div>

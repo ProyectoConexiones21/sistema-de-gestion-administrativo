@@ -68,8 +68,9 @@ ul {
 }
 
 .formulario {
-  width: 80%;
-  height: 30px;
+  position: absolute;
+  width: 70%;
+  height: auto;
   border: none;
   outline: none;
   padding: 10px;
@@ -86,7 +87,7 @@ ul {
   left: 10px;
   color: #e9e9e9;
   /* display: none; */
-  font-size: 18px;
+  font-size: 1rem;
   font-family: "Kanit", sans-serif;
   font-weight: 500;
   transform: translateY(-50%);
@@ -166,6 +167,8 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: auto;
 }
 
 .img-empresa-box {
@@ -187,7 +190,7 @@ ul {
   border: 2px solid #ffffff;
   border-radius: 20px;
   text-align: center;
-  margin: 50px;
+  margin: 60px;
   color: #ffffff;
   font-family: "Kanit", sans-serif;
   font-weight: 600;
@@ -204,6 +207,7 @@ ul {
 .content-promo {
   color: #ffffff;
   width: 60%;
+  height: auto;
   padding: 50px;
   margin-bottom: 30px;
   background: rgba(255, 255, 255, 0.2078431373);
