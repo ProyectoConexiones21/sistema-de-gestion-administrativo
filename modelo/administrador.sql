@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-09-2023 a las 21:56:15
+-- Tiempo de generación: 20-09-2023 a las 22:06:37
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -30,13 +30,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `cedula` varchar(15) NOT NULL,
-  `priNombre` varchar(50) NOT NULL,
-  `segNombre` varchar(50) NOT NULL,
-  `priApellido` varchar(50) NOT NULL,
-  `segApellido` varchar(50) NOT NULL,
+  `priNombre` varchar(30) NOT NULL,
+  `segNombre` varchar(30) NOT NULL,
+  `priApellido` varchar(30) NOT NULL,
+  `segApellido` varchar(30) NOT NULL,
   `usuario` varchar(20) NOT NULL,
-  `contraseña` varchar(30) NOT NULL
+  `contraseña` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `cedula`, `priNombre`, `segNombre`, `priApellido`, `segApellido`, `usuario`, `contraseña`) VALUES
+(1, 'V-12345678', 'Soporte', 'Soporte', 'Soporte', 'Soporte', 'soporte', '123456');
 
 --
 -- Índices para tablas volcadas
@@ -48,6 +55,16 @@ CREATE TABLE `usuarios` (
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `cedula` (`cedula`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

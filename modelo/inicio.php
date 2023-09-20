@@ -20,7 +20,8 @@ else if(isset($_POST['usuario']) && isset($_POST['contraseña'])){
     if($user->usuarioExiste($userForm, $passForm)){
         /* echo "usuario validado"; */
         $userSession->setActiUser($userForm);
-        $pagina="menu";
+        $user->setUser($userForm);
+        include_once("vista/menu.php");
     }
     else{
         /* echo "usuario sin validar"; */
