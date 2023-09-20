@@ -1,39 +1,35 @@
 <?php
 
-require_once('modelo/datos.php');
+include_once("modelo/sesion.php");
+include_once("modelo/usuario.php");
 
-class inicio extends datos{
+$userSession = new UserSession();
+$user= new inicio();
 
-    private $usuario;
-    private $contraseña;
-
-    //---------------------------SET---------------------------
-
-
-    function set_usuario($valor){
-        $this->usuario=$valor;
-    }
-    function set_contraseña($valor){
-        $this->contraseña=$valor;
-    }
-
-//----------------------------------GET----------------------------------
-
-    function get_usuario(){
-        return $this->usuario;
-    }
-    function get_contraseña(){
-        return $this->contraseña;
-    }
-
-    function ingresar(){
-		
-		return "";
-	}
-	
-    
+if(isset($_SESSION['user'])){
+/* echo "Hay sesion"; */
+$user->setUser($userSession->getActiUser());
+    include_once('vista/menu.php');
 }
+else if(isset($_POST['usuario']) && isset($_POST['contraseña'])){
+    /* echo "validacion de sesion"; */
 
+    $userForm=$_POST['usuario'];
+    $passForm= $_POST['contraseña'];
 
-
+    if($user->usuarioExiste($userForm, $passForm)){
+        /* echo "usuario validado"; */
+        $userSession->setActiUser($userForm);
+        $pagina="menu";
+    }
+    else{
+        /* echo "usuario sin validar"; */
+        $errorLogin = "Nombre de usuario y/o password incorrecto";
+        include_once("vista/inicio.php");
+    }
+}
+else{
+    /* echo "login"; */
+    include_once("vista/inicio.php");
+}
 ?>

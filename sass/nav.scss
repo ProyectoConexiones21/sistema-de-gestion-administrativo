@@ -92,13 +92,13 @@ ul{
 
 .icon-user{
     font-size: 2.5rem;
-    margin: 0 40px 0 0px;
+    margin: 0 0px 0 0px;
     text-align: center;
 }
 
 .nav-vertical-modifier-u{
     margin: 18px 20px 0 0;
-    width: 160px;
+    width: 120px;
 }
 
 .icon-alt{
@@ -106,7 +106,14 @@ ul{
     margin: 0 5px;
 }
 
+.log-out{
+    color:#ffffff;
+}
+.icon-alt-bx{
+    font-size: 2rem;
+}
+
 .nav-horizontal li:hover .nav-vertical-modifier-u{
     
-    height: 76px;
+    height: 38px;
 }
