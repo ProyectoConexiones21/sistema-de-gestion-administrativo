@@ -10,7 +10,6 @@
                 <ul class="nav-vertical">
                     <li><a href="?pagina=registrarClientePrepago">Registrar Cliente Prepago</a></li>
                     <li><a href="?pagina=registrarClienteCorporativo">Registrar Cliente Corporativo</a></li>
-                    <li><a href="?pagina=actualizar">Actualizar Datos</a></li>
                 </ul>
             </li>
             <li>
