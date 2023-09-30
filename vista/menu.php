@@ -4,7 +4,7 @@
 <?php require_once('comunes/encabezado.php'); ?>
 </head>
 <body>
-    <div class="fond fond-2">
+    <div class="fond">
         <?php require_once("comunes/nav.php")?>
         <section>
         <div class="conteiner">
