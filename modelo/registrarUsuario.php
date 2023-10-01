@@ -69,7 +69,7 @@ class registrarUsuario extends datos{
         return $this->contraseña;
     }
 
-    function guardar(){
+    function incluir(){
 		
 		if(!$this->existe($this->cedula)){
             $co = $this->conectar();
@@ -94,20 +94,25 @@ class registrarUsuario extends datos{
                     '$this->usuario',
                     '$this->contraseña'
                     )");
-                    return "Registro incluido";
+                    $r['resultado'] = 'incluir';
+			        
         } catch(Exception $e) {
-            return $e->getMessage();
-        }
-    }
-    else{
-        return "Ya existe la cedula que desea ingresar";
-    }
+			$r['resultado'] = 'error';
+			$r['mensaje'] =  $e->getMessage();
+		}
+	}
+	else{
+		$r['resultado'] = 'incluir';
+		$r['mensaje'] =  'La cedula ya existe';
+	}
+	return $r;
 	}
 	
 	function modificar(){
 		
         $co = $this->conectar();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$r=array();
 		if($this->existe($this->cedula)){
 			try {
 					$co->query("Update usuarios set 
@@ -121,14 +126,18 @@ class registrarUsuario extends datos{
 						where
 						cedula = '$this->cedula'
 						");
-						return "Registro Modificado";
+						$r['resultado'] = 'modificar';
+			           
 			} catch(Exception $e) {
-				return $e->getMessage();
+				$r['resultado'] = 'error';
+			    $r['mensaje'] =  $e->getMessage();
 			}
 		}
 		else{
-			return "Cedula no registrada";
+			$r['resultado'] = 'modificar';
+			$r['mensaje'] =  'Cedula no registrada';
 		}
+		return $r;
 	}
 	
 	function eliminar(){
@@ -140,19 +149,23 @@ class registrarUsuario extends datos{
 						where
 						cedula = '$this->cedula'
 						");
-						return "Registro Eliminado";
+						$r['resultado'] = 'eliminar';
 			} catch(Exception $e) {
-				return $e->getMessage();
+				$r['resultado'] = 'error';
+			    $r['mensaje'] =  $e->getMessage();
 			}
 		}
 		else{
-			return "Cedula no registrada";
+			$r['resultado'] = 'eliminar';
+			$r['mensaje'] =  'Cedula no registrada';
 		}
+		return $r;
 	}
 
     function consultar(){
 		$co = $this->conectar();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$r=array();
 		try{
 			
 			$resultado = $co->query("Select * from usuarios");
@@ -161,7 +174,7 @@ class registrarUsuario extends datos{
 				
 				$respuesta = '';
 				foreach($resultado as $r){
-					$respuesta = $respuesta."</tr>";
+					$respuesta = $respuesta."</tr style='cursor:pointer' onclick='coloca(this);'>";
 						$respuesta = $respuesta."<td>";
 							$respuesta = $respuesta.$r['cedula'];
 						$respuesta = $respuesta."</td>";
@@ -184,24 +197,30 @@ class registrarUsuario extends datos{
 							$respuesta = $respuesta.$r['contraseña'];
 						$respuesta = $respuesta."</td>";
 						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.'<button type="button" id="modificar"><i class="bx bxs-edit-alt"></i></button>';
+							$respuesta = $respuesta.'<button type="button" class="pencil" onclick="pone(this,0)"><i class="bx bxs-edit-alt"></i></button>';
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.'<button type="button" class="pencil" onclick="pone(this,1)"><i class="bx bx-trash"></i></button>';
 						$respuesta = $respuesta."</td>";
 					$respuesta = $respuesta."</tr>";
 				}
-				return $respuesta;
-			    
+				$r['resultado'] = 'consultar';
+				$r['mensaje'] =  $respuesta;
 			}
 			else{
-				return '';
+				$r['resultado'] = 'consultar';
+				$r['mensaje'] =  '';
 			}
 			
 		}catch(Exception $e){
-			return $e->getMessage();
+			$r['resultado'] = 'error';
+			$r['mensaje'] =  $e->getMessage();
 		}
+		return $r;
 		
 	}
 
-    private function existe($cedula){
+	private function existe($cedula){
 		$co = $this->conectar();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		try{
@@ -224,7 +243,8 @@ class registrarUsuario extends datos{
 			return false;
 		}
 	}
-    function consultatr(){
+	
+	function consultatr(){
 		$co = $this->conectar();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		try{
@@ -255,6 +275,7 @@ class registrarUsuario extends datos{
 		
 	}
 
+    
 
 
 }

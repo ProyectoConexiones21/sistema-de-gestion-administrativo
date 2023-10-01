@@ -1,10 +1,11 @@
-function guardar(){
+function consultar(){
 	var datos = new FormData();
-	datos.append('accion','guardar');
+	datos.append('accion','consultar');
 	enviaAjax(datos);	
 }
-
 $(document).ready(function(){
+
+	consultar();
 
 	//Validacion de cedula
 
@@ -16,11 +17,11 @@ $(document).ready(function(){
 		validarkeyup(/^[VE]{1}[-]{1}[0-9]{7,8}$/,$(this),
 		$("#scedula"),"El formato debe ser V-00000000 o E-00000000");
 		if($("#cedula").val().length > 7){
-		var datos = new FormData();
-			datos.append('accion','consultatr');
-			datos.append('cedula',$(this).val());
-			enviaAjax(datos,'consultatr');	
-		}
+			var datos = new FormData();
+			  datos.append('accion','consultatr');
+			  datos.append('cedula',$(this).val());
+			  enviaAjax(datos,'consultatr');	
+		  }
 	});
 
 
@@ -84,60 +85,57 @@ $(document).ready(function(){
 		$(this),$("#scontraseña"),"Solo letras y/o numeros y/o # - entre 6 y 12 caracteres");
 	});
 
+	$("#proceso").on("click",function(){
+		if($(this).text()=="Registrar Usuario"){
+			if(validarenvio()){
+				var datos = new FormData();
+				datos.append('accion','incluir');
+				datos.append('cedula',$("#cedula").val());
+				datos.append('priNombre',$("#priNombre").val());
+				datos.append('segNombre',$("#segNombre").val());
+				datos.append('priApellido',$("#priApellido").val());
+				datos.append('segApellido',$("#segApellido").val());
+				datos.append('usuario',$("#usuario").val());
+				datos.append('contraseña',$("#contraseña").val());
+				enviaAjax(datos);
+			}
+		}
 
-	$("#guardar").on("click",function(){
-		if(validarenvio()){
-			var datos = new FormData();
-			datos.append('accion','guardar');
-			datos.append('cedula',$("#cedula").val());
-			datos.append('priNombre',$("#priNombre").val());
-			datos.append('segNombre',$("#segNombre").val());
-			datos.append('priApellido',$("#priApellido").val());
-			datos.append('segApellido',$("#segApellido").val());
-			datos.append('usuario',$("#usuario").val());
-			datos.append('contraseña',$("#contraseña").val());
-			enviaAjax(datos,'incluir');
-		}
-	});
-	$("#modificar").on("click",function(){
-		if(validarenvio()){
+		else if($(this).text()=="Modificar usuario"){
+			if(validarenvio()){
 	
-			var datos = new FormData();
-			datos.append('accion','modificar');
-			datos.append('cedula',$("#cedula").val());
-			datos.append('priNombre',$("#priNombre").val());
-			datos.append('segNombre',$("#segNombre").val());
-			datos.append('priApellido',$("#priApellido").val());
-			datos.append('segApellido',$("#segApellido").val());
-			datos.append('usuario',$("#usuario").val());
-			datos.append('contraseña',$("#contraseña").val());
-			enviaAjax(datos,'modificar');
-			
+				var datos = new FormData();
+				datos.append('accion','modificar');
+				datos.append('cedula',$("#cedula").val());
+				datos.append('priNombre',$("#priNombre").val());
+				datos.append('segNombre',$("#segNombre").val());
+				datos.append('priApellido',$("#priApellido").val());
+				datos.append('segApellido',$("#segApellido").val());
+				datos.append('usuario',$("#usuario").val());
+				datos.append('contraseña',$("#contraseña").val());
+				enviaAjax(datos);
+				
+			}
 		}
-	});
-	
-	$("#eliminar").on("click",function(){
-		
-		if(validarkeyup(/^[VE]{1}[-]{1}[0-9]{7,8}$/,$("#cedula"),
+		if($(this).text()=="Eliminar Usuario"){
+			if(validarkeyup(/^[VE]{1}[-]{1}[0-9]{7,8}$/,$("#cedula"),
 			$("#scedula"),"El formato debe ser 9999999")==0){
 			muestraMensaje("El formato debe ser V-00000000 o E-00000000");	
 			
-		}
-		else{	
+			}
+			else{	
 			
 			var datos = new FormData();
 			datos.append('accion','eliminar');
 			datos.append('cedula',$("#cedula").val());
-			enviaAjax(datos,'eliminar');
+			enviaAjax(datos);
+			}
 		}
-		
 	});
-
-	$("#guardar").on("click",function(){
-	var datos = new FormData();
-	datos.append('accion','consultar');
-	enviaAjax(datos,'consultar');
-});
+	$("#proceso").text("Registrar Usuario");
+	$("#proceso").on("click",function(){
+		limpia();
+	});
 	
 
 })
@@ -219,81 +217,97 @@ mensaje){
 	}
 }
 
-function coloca(linea){
-	$("#cedula").val($(linea).find("td:eq(0)").text());
-	$("#priNombre").val($(linea).find("td:eq(1)").text());
-	$("#segNombre").val($(linea).find("td:eq(2)").text());
-	$("#priApellido").val($(linea).find("td:eq(3)").text());
-	$("#segApellido").val($(linea).find("td:eq(4)").text());
-	$("#usuario").val($(linea).find("td:eq(5)").text());
-	$("#contraseña").val($(linea).find("td:eq(6)").text());
-	
+function pone(pos,accion){
+	linea=$(pos).closest('tr');
+
+	if(accion==0){
+		$("#proceso").text("Modificar usuario");
+	}
+	else{
+		$("#proceso").text("Eliminar Usuario")
+	}
+	$("#cedula").val($(linea).find("td:eq(1)").text());
+	$("#priNombre").val($(linea).find("td:eq(2)").text());
+	$("#segNombre").val($(linea).find("td:eq(3)").text());
+	$("#priApellido").val($(linea).find("td:eq(4)").text());
+	$("#segApellido").val($(linea).find("td:eq(5)").text());
+	$("#usuario").val($(linea).find("td:eq(6)").text());
+	$("#contraseña").val($(linea).find("td:eq(7)").text());
 }
 
-function enviaAjax(datos,accion){
-
+function enviaAjax(datos,accion) {
 	$.ajax({
-		async: true,
-        url: '',
-        type: 'POST',
-		contentType: false,
-        data: datos,
-		processData: false,
-	    cache: false,
-            success: function(respuesta){
-			
-			if(accion=='guardar'){
-				$("#resultadoconsulta").html(respuesta);
-			}
-			else if(accion=='consultatr'){
-				lee = JSON.parse(respuesta);
-				
-				if(lee['resultado']=='encontro'){  
-					$("#cedula").val(lee[0].cedula);
-					$("#priNombre").val(lee[0].priNombre);
-					$("#segNombre").val(lee[0].segNombre);
-					$("#priApellido").val(lee[0].priApellido);
-					$("#segApellido").val(lee[0].segApellido);
-					$("#usuario").val(lee[0].usuario);
-					$("#contraseña").val(lee[0].contraseña);
-					
-				}
-				else if(lee['resultado']=='noencontro'){
+	async: true,
+	url: "",
+	type: "POST",
+	contentType: false,
+	data: datos,
+	processData: false,
+	cache: false,
+	beforeSend: function () {},
+	timeout: 10000, //tiempo maximo de espera por la respuesta del servidor
+	success: function (respuesta) {
+		console.log(respuesta);
+		try {
+			var lee = JSON.parse(respuesta);
+			if (lee.resultado == "consultar") {
+			$("#resultadoconsulta").html(lee.mensaje);
+		}
 
-				}
-				else {
-					muestraMensaje(lee['resultado']);
-				}
-				
+		else if(accion=='consultatr'){
+			lee = JSON.parse(respuesta);
+			if(lee['resultado']=='encontro'){  
+				$("#priNombre").val(lee[0].priNombre);
+				$("#segNombre").val(lee[0].segNombre);
+				$("#priApellido").val(lee[0].priApellido);
+				$("#segApellido").val(lee[0].segApellido);
+				$("#usuario").val(lee[0].usuario);
+				$("#contraseña").val(lee[0].contraseña);
+			}
+		}
+		else if (lee.resultado == "incluir") {
+			consultar();
 			
-			}
-			else if(accion=='obtienefecha'){
-				$("#fechadenacimiento").val(respuesta);
-			}
-			else{
-				limpia();
-				muestraMensaje(respuesta);
-				
-			}
-            },
-            error: function(){
-			muestraMensaje("Error con ajax");	
-            }
+		}
+		else if (lee.resultado == "modificar") {
 			
-    }); 
+			
+				consultar();
+			
+		}
+		else if (lee.resultado == "eliminar") {
+			
+				consultar();
+		}
+		else if (lee.resultado == "error") {
+			muestraMensaje(lee.mensaje);
+		}
+		} catch (e) {
+		alert("Error en JSON " + e.name);
+		}
+	},
+	error: function (request, status, err) {
+		if (status == "timeout") {
+		
+		muestraMensaje("Servidor ocupado, intente de nuevo");
+		} else {
+		muestraMensaje("ERROR: <br/>" + request + status + err);
+		}
+	},
+	complete: function () {},
+	});
+}
 
-	function limpia(){
+function limpia(){
 		
-		$("#cedula").val("");
-		$("#priNombre").val("");
-		$("#segNombre").val("");
-		$("#priApellido").val("");
-		$("#segApellido").val("");
-		$("#usuario").val("");
-		$("#contraseña").val("");
-		
-		
-		
-	}
+	$("#cedula").val("");
+	$("#priNombre").val("");
+	$("#segNombre").val("");
+	$("#priApellido").val("");
+	$("#segApellido").val("");
+	$("#usuario").val("");
+	$("#contraseña").val("");
+	
+	
 	
 }

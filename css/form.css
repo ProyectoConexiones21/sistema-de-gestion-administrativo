@@ -24,7 +24,7 @@ a {
 }
 
 .fond-2 {
-  height: 100vh;
+  height: auto;
 }
 
 .conteiner {
@@ -180,7 +180,7 @@ table {
   color: #ffffff;
   font-family: "Kanit", sans-serif;
   font-weight: 500;
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding: 5px;
   margin-bottom: 50px;
 }
@@ -206,13 +206,18 @@ td {
 }
 
 .pencil {
-  color: #ffffff;
-  font-size: 1.5rem;
+  color: #000000;
+  font-size: 1.2rem;
   transition: 0.5s;
+  background: #ffffff;
+  box-shadow: none;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
 }
 
 .pencil:hover {
-  color: #00ea00;
+  color: #ffffff;
+  background: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
 }
 
 .conteiner-busqueda {

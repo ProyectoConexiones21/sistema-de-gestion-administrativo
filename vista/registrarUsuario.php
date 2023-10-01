@@ -12,8 +12,8 @@
                 <h1 class="title">Registrar Usuario</h1>
             </div>
             <div class="form-contenedor">
-            <form action="" method="post" name="f" id="f">
-                <input type="text" name="accion" id="accion" style="display: none;">
+            <form action="" method="post" name="f" id="f" autocomplete="on">
+                <input autocomplete="on" type="text" name="accion" id="accion" style="display: none;">
                     <div class="row">
                         <div class="form-box box-modi">
                             <input type="text" name="cedula" id="cedula" required>
@@ -60,10 +60,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <button type="button" class="opciones" id="guardar" >Guardar Usuario</button>
-                        <button type="button" class="opciones" id="modificar" >Modificar Usuario</button>
-                        <button type="button" class="opciones" id="eliminar" >Eliminar Usuario</button>
-                        <button type="button" class="opciones" id="consultar" >Consultar Usuario</button>
+                        <button type="button" class="opciones" id="proceso" ></button>
                     </div>
                 </form>
             </div>
